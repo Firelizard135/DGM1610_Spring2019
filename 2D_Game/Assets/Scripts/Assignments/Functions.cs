@@ -21,7 +21,10 @@ public class Functions : MonoBehaviour
         else if (weatherState == "Snowy") {
             print("Its a blizzard out there");
         }
-        else (weatherState == "Raining") {
+        else if (weatherState == "Raining") {
+            print("Its raining cats and dogs");
+        }
+        else {
             print("I dont understand "+weatherState);
         }
     }
