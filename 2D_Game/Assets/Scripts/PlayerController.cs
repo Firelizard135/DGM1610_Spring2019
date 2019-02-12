@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.D)) {
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
-        if(Input.GetKey(KeyCode.A)) {
+        else if(Input.GetKey(KeyCode.A)) {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
     }
