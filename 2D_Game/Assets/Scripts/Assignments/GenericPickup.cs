@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GenericPickup : MonoBehaviour
 {
-    public bool isVisable;
+    public bool isVisible;
     public int value;
     public float timer;
 
