@@ -7,19 +7,27 @@ public class PlayerController : MonoBehaviour
     // Player Movement Variables
     public float moveSpeed;
     public float jumpHeight;
+
+    // Player grounded variables
     private bool grounded;
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask whatIsGround;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        grounded = true;
+        
+    }
+
+    void FixedUpdate() {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
 
         // Left Right Movement
         if(Input.GetKey(KeyCode.D)) {
@@ -29,11 +37,19 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
         // Jump
-        if(Input.GetKey(KeyCode.W)) {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+        if(Input.GetKey(KeyCode.W) && grounded) {
+            Jump();
         }
+
+
     }
+
+    void Jump() {
+        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+    }
+
 }
+
 
 /*
 GetKey = keyboard_check()
