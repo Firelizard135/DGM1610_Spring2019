@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CoinPickup : GenericPickup {
 
-    public GameObject PC;
+    public int coinValue;
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.name == "Player"){
             //player collects coin
             print("you've collected a coin");
+
+            ScoreManager.AddPoints(coinValue);
+
             Destroy(gameObject);
-        }
-        else {
-            //not player
         }
     }
 
