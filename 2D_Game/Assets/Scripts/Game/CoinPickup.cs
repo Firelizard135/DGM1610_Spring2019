@@ -11,7 +11,7 @@ public class CoinPickup : GenericPickup {
             //player collects coin
             print("you've collected a coin");
 
-            ScoreManager.AddPoints(coinValue);
+            CoinCounter.AddPoints(coinValue);
 
             Destroy(gameObject);
         }

@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
-  value: 100
+  value: 1
   timer: 0
-  coinValue: 100
+  coinValue: 1
 --- !u!58 &5199008830813179935
 CircleCollider2D:
   m_ObjectHideFlags: 0
