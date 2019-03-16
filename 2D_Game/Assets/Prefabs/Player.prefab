@@ -144,13 +144,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 5
-  jumpHeightMax: 15
   groundCheck: {fileID: 9156009432051071001}
   groundCheckRadius: 0.1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  jumpsMax: 1
+  jumpForce: 5
+  jumpHeightMax: 15
 --- !u!96 &9156009431297136769
 TrailRenderer:
   serializedVersion: 2

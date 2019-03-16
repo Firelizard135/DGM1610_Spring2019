@@ -8,18 +8,19 @@ public class PlayerController : MonoBehaviour
     // Player Movement Variables
     public float moveSpeed;
     private float direction;
-    public float jumpForce;
-    public int jumpHeightMax;
 
     // Player grounded variables
     private bool grounded;
-    private bool canJump;
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
 
-    // How long the jump key has been held down
-    private int jumpHeightNow;
+    // Jumping
+    private int jumpsLeft; // how many jumps left
+    private int jumpHeightNow; // How long the jump key has been held down
+    public int jumpsMax;
+    public float jumpForce;
+    public int jumpHeightMax;
 
 
     // Start is called before the first frame update
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
         if(grounded) {
             // resets jump
-            canJump = true;
+            jumpsLeft = jumpsMax;
             jumpHeightNow = 0;
         }
     }
@@ -47,23 +48,20 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(direction*moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
 
-        // Left Right Movement
-        // if(Input.GetKey(KeyCode.D)) {
-        //     GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        // }
-        // else if(Input.GetKey(KeyCode.A)) {
-        //     GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        // }
-
 
         // Variable Jump
-        if(Input.GetKey(KeyCode.W) && canJump && jumpHeightNow<jumpHeightMax) {
+        if(Input.GetKeyDown(KeyCode.W) && jumpsLeft>0 && jumpHeightNow<jumpHeightMax) {
             jumpHeightNow += 1;
             Jump();
         }
         if(Input.GetKeyUp(KeyCode.W)) {
-            jumpHeightNow = jumpHeightMax;
-            canJump = false;
+            jumpsLeft -= 1;
+            if(jumpsLeft>0) {
+                jumpHeightNow = 0; //reset jump height limit
+            }
+            else {
+                jumpHeightNow = jumpHeightMax; //Jumps are done
+            }
         }
 
     }
