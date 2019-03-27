@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Health
+    public int maxHealth;
+    public int healthNow;
 
     // Player Movement Variables
     public float moveSpeed;
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         // Horizontal Movement

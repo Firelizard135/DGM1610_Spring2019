@@ -24,7 +24,7 @@ public class CoinCounter : MonoBehaviour
         if (coinCount < 0)
             coinCount = 0;
 
-        coinText.text = " " + coinCount;
+        coinText.text = ""+coinCount;
     }
 
     public static void AddPoints (int pointsToAdd) {

@@ -18,6 +18,24 @@ public class Loops : MonoBehaviour
         //     print(i+" bottles of beer on the wall");
         //     bottles++;
         // }
+
+        //Do While loop
+        // bool shouldContinue = false;
+
+        // do{
+        //     print("hi");
+        // }while(shouldContinue == true);
+
+        // For Each Loop
+        // string[] strings = new string[3];
+
+        // strings[0] = "First string";
+        // strings[1] = "Second string";
+        // strings[2] = "Third string";
+
+        // foreach(string item in strings){
+        //     print(item);
+        // }
     }
 
     // Update is called once per frame

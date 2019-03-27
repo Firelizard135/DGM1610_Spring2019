@@ -8,12 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9156009431297136772}
+  - component: {fileID: 7899288337480590236}
   - component: {fileID: 9156009431297136773}
   - component: {fileID: 9156009431297136774}
   - component: {fileID: 9156009431297136775}
   - component: {fileID: 9156009431297136768}
   - component: {fileID: 9156009431297136769}
+  - component: {fileID: 8546488385864894753}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -21,21 +22,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9156009431297136772
-Transform:
+--- !u!224 &7899288337480590236
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9156009431297136770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.37, y: -1.26, z: 105.37}
+  m_LocalPosition: {x: 0, y: 0, z: 105.37}
   m_LocalScale: {x: 5.2853107, y: 5.2853107, z: 5.2853107}
   m_Children:
   - {fileID: 9156009432051071001}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.37, y: -1.26}
+  m_SizeDelta: {x: 0.16, y: 0.16}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &9156009431297136773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -143,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01bd4f2cad30a2840a56870a9b62b188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 5
+  healthNow: 5
   moveSpeed: 5
   groundCheck: {fileID: 9156009432051071001}
   groundCheckRadius: 0.1
@@ -256,6 +264,14 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!222 &8546488385864894753
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9156009431297136770}
+  m_CullTransparentMesh: 0
 --- !u!1 &9156009432051071002
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +299,6 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.084, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 9156009431297136772}
+  m_Father: {fileID: 7899288337480590236}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
