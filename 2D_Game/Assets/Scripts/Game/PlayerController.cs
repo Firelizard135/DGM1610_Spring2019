@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     // Player Movement Variables
     public float moveSpeed;
-    private float direction;
+    public float direction;
 
     // Player grounded variables
     private bool grounded;
@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public int jumpsMax;
     public float jumpForce;
     public int jumpHeightMax;
+
+    public GameObject projectile;
 
 
     // Start is called before the first frame update
@@ -67,10 +69,19 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        //Shoot
+        if(Input.GetButtonDown("Fire1")) {
+            Shoot();
+        }
+
     }
 
     void Jump() {
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpForce);
+    }
+
+    void Shoot() {
+        Instantiate(projectile, GetComponent<Rigidbody2D>().transform.position, GetComponent<Rigidbody2D>().transform.rotation);
     }
 
 }
