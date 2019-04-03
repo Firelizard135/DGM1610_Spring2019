@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2358116727478582436}
   - component: {fileID: 1341273509772490533}
+  - component: {fileID: 6315504303470026051}
   - component: {fileID: 8484929533663405364}
   m_Layer: 0
   m_Name: RespawnParticles
@@ -4694,6 +4695,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &6315504303470026051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701560862596868650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8b674929eaf894eaa6b3fedf129d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!199 &8484929533663405364
 ParticleSystemRenderer:
   serializedVersion: 6
