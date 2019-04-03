@@ -8,6 +8,9 @@ public class LevelManager : MonoBehaviour
     public GameObject currentCheckPoint;
     private Rigidbody2D pcRigid;
 
+    private PlayerController playerController;
+    public HealthManager healthManager;
+
     private GameObject player;
 
     //Particles
@@ -28,6 +31,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        healthManager = FindObjectOfType<HealthManager>();
         pcRigid = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
     }
@@ -61,6 +66,9 @@ public class LevelManager : MonoBehaviour
         pcRigid.GetComponent<Renderer>().enabled = true;
         //spawn PC
         Instantiate(respawnParticle, currentCheckPoint.transform.position, currentCheckPoint.transform.rotation);
+
+        //set health back to full
+        healthManager.PlayerHeal(playerController.maxHealth);
     }
 
     // Update is called once per frame

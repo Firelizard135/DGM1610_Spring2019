@@ -8,25 +8,45 @@ public class HealthManager : MonoBehaviour
 
     private Text healthText;
 
-    PlayerController playerController;
+    private PlayerController playerController;
+    private GameObject player;
 
+    public LevelManager levelManager;
     
     void Start()
     {
         healthText = GetComponent<Text>();
 
-        playerController = GetComponent<PlayerController>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        player = GameObject.Find("Player");
 
+        levelManager = FindObjectOfType<LevelManager>();
+
+        //set health to full
         playerController.healthNow = playerController.maxHealth;
     }
 
-    
-    void Update()
+    // when player takes damage
+    public void PlayerHurt(int amount)
     {
+        print("You've taken damage");
+        //subtract health
+        playerController.healthNow -= amount;
+        // Update health display
+        healthText.text = playerController.healthNow+"/"+playerController.maxHealth;
+        // if dead, respawn
+        if(playerController.healthNow <= 0){
+            levelManager.RespawnPlayer();
+        }
+    }
 
-        if (playerController.healthNow < 0)
-            playerController.healthNow = 0;
-
+    //
+    public void PlayerHeal(int amount)
+    {
+        print("You've recovered health");
+        //add health
+        playerController.healthNow += amount;
+        // Update health display
         healthText.text = playerController.healthNow+"/"+playerController.maxHealth;
     }
 }
