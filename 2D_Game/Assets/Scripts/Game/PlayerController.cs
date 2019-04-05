@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public int jumpHeightMax;
 
+    //Define Projectile
     public GameObject projectile;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -50,11 +50,11 @@ public class PlayerController : MonoBehaviour
         // Horizontal Movement
         if(Input.GetAxis("Horizontal") != 0) {
             direction = Input.GetAxis("Horizontal");
+
             GetComponent<Rigidbody2D>().velocity = new Vector2(direction*moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
 
-
-        // Variable Jump
+        // Variable Height Jump
         if(Input.GetKeyDown(KeyCode.W) && jumpsLeft>0 && jumpHeightNow<jumpHeightMax) {
             jumpHeightNow += 1;
             Jump();

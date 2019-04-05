@@ -14,7 +14,8 @@ public class Projectile : MonoBehaviour
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         direction = playerController.direction;
 
-        DestroyTimer();
+        //Start timer till self destruct
+        StartCoroutine("DestroyTimer");
     }
 
     void FixedUpdate()
@@ -34,7 +35,9 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    // Destroy self after timer finishes
     public IEnumerator DestroyTimer(){ 
+        print("timer");
         yield return new WaitForSeconds (lifeSpan);
         Destroy(gameObject);
     }
