@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
     //Camera Position Offset
     public float xOffset;
     public float yOffset;
-
+    
 
     void Start()
     {

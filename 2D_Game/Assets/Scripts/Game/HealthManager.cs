@@ -10,6 +10,9 @@ public class HealthManager : MonoBehaviour
 
     private PlayerController playerController;
     private GameObject player;
+    private Rigidbody2D pcRigid;
+
+    public GameObject healthParticle;
 
     public LevelManager levelManager;
     
@@ -19,11 +22,14 @@ public class HealthManager : MonoBehaviour
 
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         player = GameObject.Find("Player");
+        pcRigid = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
         levelManager = FindObjectOfType<LevelManager>();
 
         //set health to full
         playerController.healthNow = playerController.maxHealth;
+        // Update health display
+        healthText.text = playerController.healthNow+"/"+playerController.maxHealth;
     }
 
     // when player takes damage
@@ -48,6 +54,8 @@ public class HealthManager : MonoBehaviour
         playerController.healthNow += amount;
         // Update health display
         healthText.text = playerController.healthNow+"/"+playerController.maxHealth;
+        //generate death particle
+        Instantiate(healthParticle, pcRigid.transform.position, pcRigid.transform.rotation);
     }
 }
 
