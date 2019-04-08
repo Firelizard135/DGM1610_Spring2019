@@ -31,13 +31,11 @@ public class Projectile : MonoBehaviour
         }
         if(other.name != "Player"){
             Destroy(gameObject);
-            print("pew");
         }
     }
 
     // Destroy self after timer finishes
     public IEnumerator DestroyTimer(){ 
-        print("timer");
         yield return new WaitForSeconds (lifeSpan);
         Destroy(gameObject);
     }
