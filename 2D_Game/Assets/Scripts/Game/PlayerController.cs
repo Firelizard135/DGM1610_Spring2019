@@ -28,10 +28,19 @@ public class PlayerController : MonoBehaviour
     //Define Projectile
     public GameObject projectile;
 
+    private float scale;
+
+    private bool massIsGreater;
+    public float greaterMass;
+    public float lesserMass;
+
 
     void Start()
     {
-        
+        GetComponent<Rigidbody2D>().mass = lesserMass;
+        massIsGreater = false;
+
+        scale = transform.localScale.x;
     }
 
     void FixedUpdate() {
@@ -54,6 +63,14 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(direction*moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
 
+        //Player Flip
+        if(GetComponent<Rigidbody2D>().velocity.x > 0)
+            transform.localScale = new Vector3(-scale,scale,1f);
+
+        else if(GetComponent<Rigidbody2D>().velocity.x < 0)
+            transform.localScale = new Vector3(scale,scale,1f);
+
+
         // Variable Height Jump
         if(Input.GetKeyDown(KeyCode.W) && jumpsLeft>0 && jumpHeightNow<jumpHeightMax) {
             jumpHeightNow += 1;
@@ -73,8 +90,13 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Fire1")) {
             Shoot();
         }
+        //Toggle weight
+        if(Input.GetButtonDown("Fire3")) {
+            ToggleMass();
+        }
 
     }
+
 
     void Jump() {
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpForce);
@@ -84,4 +106,14 @@ public class PlayerController : MonoBehaviour
         Instantiate(projectile, GetComponent<Rigidbody2D>().transform.position, GetComponent<Rigidbody2D>().transform.rotation);
     }
 
+    void ToggleMass() {
+        if(massIsGreater) {
+            GetComponent<Rigidbody2D>().mass = lesserMass;
+            massIsGreater = false;
+        }
+        else {
+            GetComponent<Rigidbody2D>().mass = greaterMass;
+            massIsGreater = true;
+        }
+    }
 }
