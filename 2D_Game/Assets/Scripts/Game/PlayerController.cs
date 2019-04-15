@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour
     private float scale;
     private Rigidbody2D rb2D;
 
-    private bool massIsGreater;
+    public Animator animator;
+
     public float greaterMass;
     public float lesserMass;
 
@@ -38,8 +39,9 @@ public class PlayerController : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
 
+        animator.SetBool("isHeavy",false);
+
         rb2D.mass = lesserMass;
-        massIsGreater = false;
 
         scale = transform.localScale.x;
     }
@@ -101,13 +103,13 @@ public class PlayerController : MonoBehaviour
     }
 
     void ToggleMass() {
-        if(massIsGreater) {
+        if(animator.GetBool("isHeavy") == true) {
             rb2D.mass = lesserMass;
-            massIsGreater = false;
+            animator.SetBool("isHeavy",false);
         }
         else {
             rb2D.mass = greaterMass;
-            massIsGreater = true;
+            animator.SetBool("isHeavy",true);
         }
     }
 }
