@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
+    public Animator animator;
 
-    public bool isHeavy;
-    private bool isPressed;
+    public GameObject gate;
+    private Gate gateScript;
 
     void Start(){
-        isPressed = false;
-        
+        animator.SetBool("isDown",false);
+
+        gate = GameObject.Find("Gate");
+        gateScript = gate.GetComponent<Gate>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        isPressed = true;
-        
+        animator.SetBool("isDown",true);
         GetComponent<BoxCollider2D>().enabled = false;
+
+        gateScript.OpenGate();
     }
 }

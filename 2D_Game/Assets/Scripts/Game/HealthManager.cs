@@ -20,9 +20,9 @@ public class HealthManager : MonoBehaviour
     {
         healthText = GetComponent<Text>();
 
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         player = GameObject.Find("Player");
-        pcRigid = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        playerController = player.GetComponent<PlayerController>();
+        pcRigid = player.GetComponent<Rigidbody2D>();
 
         levelManager = FindObjectOfType<LevelManager>();
 
