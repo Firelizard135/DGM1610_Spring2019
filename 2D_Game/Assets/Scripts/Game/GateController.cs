@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gate : MonoBehaviour
+public class GateController : MonoBehaviour
 {
     public Animator animator;
 
