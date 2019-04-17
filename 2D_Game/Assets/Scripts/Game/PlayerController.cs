@@ -23,9 +23,6 @@ public class PlayerController : MonoBehaviour
     public int jumpsMax;
     public float jumpForce;
 
-    //Define Projectile
-    public GameObject projectile;
-
     private float scale;
     private Rigidbody2D rb2D;
 
@@ -81,10 +78,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //Shoot
-        if(Input.GetButtonDown("Fire1")) {
-            Shoot();
-        }
+
         //Toggle weight
         if(Input.GetButtonDown("Fire3")) {
             ToggleMass();
@@ -96,10 +90,6 @@ public class PlayerController : MonoBehaviour
     void Jump() {
         //rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
         rb2D.AddForce(transform.up * jumpForce * 10);
-    }
-
-    void Shoot() {
-        Instantiate(projectile, rb2D.transform.position, rb2D.transform.rotation);
     }
 
     void ToggleMass() {
