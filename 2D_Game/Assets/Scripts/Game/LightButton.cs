@@ -15,6 +15,7 @@ public class LightButton : MonoBehaviour
         gateController = gate.GetComponent<GateController>();
     }
 
+    // Press Button
     void OnTriggerEnter2D(Collider2D other) {
         animator.SetBool("isDown",true);
         GetComponent<BoxCollider2D>().enabled = false;

@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject lightParticle;
+    public GameObject heavyParticle;
+
     public float greaterMass;
     public float lesserMass;
 
@@ -96,10 +99,12 @@ public class PlayerController : MonoBehaviour
         if(animator.GetBool("isHeavy") == true) {
             rb2D.mass = lesserMass;
             animator.SetBool("isHeavy",false);
+            Instantiate(lightParticle, rb2D.transform.position, rb2D.transform.rotation);
         }
         else {
             rb2D.mass = greaterMass;
             animator.SetBool("isHeavy",true);
+            Instantiate(heavyParticle, rb2D.transform.position, rb2D.transform.rotation);
         }
     }
 }

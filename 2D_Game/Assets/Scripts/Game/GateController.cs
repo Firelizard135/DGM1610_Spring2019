@@ -10,6 +10,7 @@ public class GateController : MonoBehaviour
         animator.SetBool("isOpen",false);
     }
 
+    // Open the gate
     public void OpenGate(){
         animator.SetBool("isOpen",true);
         GetComponent<BoxCollider2D>().enabled = false;

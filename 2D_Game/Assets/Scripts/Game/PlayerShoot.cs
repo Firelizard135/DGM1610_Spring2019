@@ -14,6 +14,7 @@ public class PlayerShoot : MonoBehaviour
     private float shotCharge;
 
     private Rigidbody2D rb2D;
+    public GameObject sparksParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot() {
         Instantiate(projectile, rb2D.transform.position, rb2D.transform.rotation);
+        Instantiate(sparksParticle, rb2D.transform.position, rb2D.transform.rotation);
         shotCharge = 0;
     }
 }

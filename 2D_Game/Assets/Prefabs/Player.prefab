@@ -189,6 +189,10 @@ MonoBehaviour:
   jumpsMax: 1
   jumpForce: 50
   animator: {fileID: 1575509390676297969}
+  lightParticle: {fileID: 1923804569878563177, guid: dc4271e0c49de6749bd21a6017932b9a,
+    type: 3}
+  heavyParticle: {fileID: 3219366854905984156, guid: 9d906194ca13f2c4ba8d2d0cbea22760,
+    type: 3}
   greaterMass: 2
   lesserMass: 1
 --- !u!114 &5627965198499880889
@@ -207,6 +211,8 @@ MonoBehaviour:
     type: 3}
   maxShotCharge: 5
   shotChargeSpeed: 0.2
+  sparksParticle: {fileID: 7771220810954170613, guid: 385645bd76ab6cf47b4a5d6914102105,
+    type: 3}
 --- !u!222 &8546488385864894753
 CanvasRenderer:
   m_ObjectHideFlags: 0
