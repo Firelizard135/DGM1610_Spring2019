@@ -35,14 +35,12 @@ public class PlayerController : MonoBehaviour
     public float lesserMass;
 
 
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-
         animator.SetBool("isHeavy",false);
-
         rb2D.mass = lesserMass;
-
         scale = transform.localScale.x;
     }
 
@@ -62,8 +60,8 @@ public class PlayerController : MonoBehaviour
         if(Input.GetAxis("Horizontal") != 0) {
             direction = Input.GetAxis("Horizontal");
 
-            rb2D.velocity = new Vector2(direction*moveSpeed/rb2D.mass, rb2D.velocity.y);
-            //rb2D.AddForce(transform.right*direction*moveSpeed);
+            //rb2D.velocity = new Vector2(direction*moveSpeed/rb2D.mass, rb2D.velocity.y);
+            rb2D.AddForce(transform.right*direction*moveSpeed);
         }
 
         //Player Flip

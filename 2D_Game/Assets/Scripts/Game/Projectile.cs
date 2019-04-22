@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        //move horizontally
+        //Move Horizontally
         transform.position = new Vector2(transform.position.x+speed*Mathf.Sign(direction),transform.position.y);
     }
 
