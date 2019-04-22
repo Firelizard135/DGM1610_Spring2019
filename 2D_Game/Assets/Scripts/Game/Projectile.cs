@@ -5,14 +5,22 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private PlayerController playerController;
+    private PlayerShoot playerShoot;
+    public GameObject sparksParticle;
     public float speed;
     private float direction;
     public int lifeSpan;
+    private float charge;
+    
 
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerShoot = GameObject.Find("Player").GetComponent<PlayerShoot>();
         direction = playerController.direction;
+
+        charge = playerShoot.shotCharge/2;
+        playerShoot.shotCharge = 0;
 
         //Start timer till self destruct
         StartCoroutine("DestroyTimer");
@@ -21,7 +29,7 @@ public class Projectile : MonoBehaviour
     void FixedUpdate()
     {
         //Move Horizontally
-        transform.position = new Vector2(transform.position.x+speed*Mathf.Sign(direction),transform.position.y);
+        transform.position = new Vector2(transform.position.x+speed*Mathf.Sign(direction)*charge,transform.position.y);
     }
 
     // When the projectile hits something
@@ -31,6 +39,7 @@ public class Projectile : MonoBehaviour
         }
         if(other.name != "Player"){
             Destroy(gameObject);
+            Instantiate(sparksParticle, transform.position, transform.rotation);
         }
     }
 

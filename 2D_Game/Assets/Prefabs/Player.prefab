@@ -33,7 +33,7 @@ RectTransform:
   m_GameObject: {fileID: 9156009431297136770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 105.37}
-  m_LocalScale: {x: 5.2853107, y: 5.2853107, z: 5.2853107}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9156009432051071001}
   m_Father: {fileID: 0}
@@ -131,7 +131,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1.5
   m_AngularDrag: 0.05
   m_GravityScale: 1.5
   m_Material: {fileID: 0}
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   healthNow: 5
-  moveSpeed: 10
+  moveSpeed: 30
   direction: 0
   groundCheck: {fileID: 9156009432051071001}
   groundCheckRadius: 0.1
@@ -187,7 +187,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   jumpsMax: 1
-  jumpForce: 50
+  jumpForce: 60
   animator: {fileID: 1575509390676297969}
   lightParticle: {fileID: 1923804569878563177, guid: dc4271e0c49de6749bd21a6017932b9a,
     type: 3}
@@ -211,6 +211,7 @@ MonoBehaviour:
     type: 3}
   maxShotCharge: 5
   shotChargeSpeed: 0.2
+  shotCharge: 0
   sparksParticle: {fileID: 7771220810954170613, guid: 385645bd76ab6cf47b4a5d6914102105,
     type: 3}
 --- !u!222 &8546488385864894753

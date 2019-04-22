@@ -8,10 +8,11 @@ public class PlayerShoot : MonoBehaviour
 {
     //Define Projectile
     public GameObject projectile;
+    private PlayerController playerController;
 
     public float maxShotCharge;
     public float shotChargeSpeed;
-    private float shotCharge;
+    public float shotCharge;
 
     private Rigidbody2D rb2D;
     public GameObject sparksParticle;
@@ -20,6 +21,7 @@ public class PlayerShoot : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        playerController = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,7 @@ public class PlayerShoot : MonoBehaviour
     void Shoot() {
         Instantiate(projectile, rb2D.transform.position, rb2D.transform.rotation);
         Instantiate(sparksParticle, rb2D.transform.position, rb2D.transform.rotation);
-        shotCharge = 0;
+        //recoil
+        rb2D.AddForce(transform.right*playerController.transform.localScale.x*300*shotCharge);
     }
 }
