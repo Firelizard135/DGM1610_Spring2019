@@ -6,13 +6,20 @@ public class EnemyShoot : MonoBehaviour
 {
 
     public GameObject player;
-    private Collider2D playerCollider;
+    public LayerMask whatIsPlayer;
 
+    //Define Projectile
+    public GameObject projectile;
+    public GameObject sparksParticle;
+
+    public Transform shootCheck;
+
+    private Collider2D playerCollider;
     private Collider2D collider;
 
-    public float range;
+    public float shotRange;
     public float shotDelay;
-    private float playerDistance;
+    private bool playerInRange;
     private bool canShoot;
 
     void Start()
@@ -24,12 +31,11 @@ public class EnemyShoot : MonoBehaviour
 
     void Update()
     {
-        playerDistance = Vector2.Distance(player.transform.position, transform.position);
+        playerInRange = Physics2D.OverlapCircle(shootCheck.position, shotRange, whatIsPlayer);
 
-        if(playerDistance < range) 
-            if(canShoot == true) {
-                Shoot();
-            }
+        if(playerInRange & canShoot) {
+            Shoot();
+        }
     }
 
     void Shoot()
@@ -39,7 +45,10 @@ public class EnemyShoot : MonoBehaviour
     }
 
     public IEnumerator ShootPlayer(){
-        print("enemy shoot");
+        // Shoot
+        Instantiate(projectile, transform.position, transform.rotation);
+        Instantiate(sparksParticle, transform.position, transform.rotation);
+
         yield return new WaitForSeconds (shotDelay);
         canShoot = true;
     }

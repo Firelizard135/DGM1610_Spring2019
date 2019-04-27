@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    //Player Scripts
     private PlayerController playerController;
     private PlayerShoot playerShoot;
+
     public GameObject sparksParticle;
+
+    public int lifeSpan;
     public float speed;
     private float direction;
-    public int lifeSpan;
     private float charge;
     
 
