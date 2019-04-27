@@ -5,6 +5,7 @@ using UnityEngine;
 public class GlassFloor : MonoBehaviour
 {
     public GameObject glassParticle;
+    public int weight;
 
     void Start(){
 
@@ -12,8 +13,8 @@ public class GlassFloor : MonoBehaviour
 
     // Floor break
     void OnCollisionEnter2D(Collision2D other) {
-        // If colliding object is heavier than 1.5
-        if(other.gameObject.GetComponent<Rigidbody2D>().mass >= 1.5 ){
+        // If colliding object is heavier than weight
+        if(other.gameObject.GetComponent<Rigidbody2D>().mass >= weight ){
             Instantiate(glassParticle, transform.position, transform.rotation);
             Destroy(gameObject);
         }

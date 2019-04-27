@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     // Player Movement Variables
     public float moveSpeed;
     public float direction;
+    public float horizontalDrag;
 
     // Player grounded variables
     private bool grounded;
@@ -51,6 +52,9 @@ public class PlayerController : MonoBehaviour
             // resets jump
             jumpsLeft = jumpsMax;
         }
+
+        //rb2D.velocity.x = rb2D.velocity.x*(1-horizontalDrag);
+        rb2D.velocity = new Vector2(rb2D.velocity.x*(1-horizontalDrag), rb2D.velocity.y);
     }
 
     

@@ -179,8 +179,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   healthNow: 5
-  moveSpeed: 30
+  moveSpeed: 50
   direction: 0
+  horizontalDrag: 0.1
   groundCheck: {fileID: 9156009432051071001}
   groundCheckRadius: 0.1
   whatIsGround:
