@@ -9,7 +9,7 @@ public class CoinPickup : GenericPickup {
     void OnTriggerEnter2D(Collider2D other) {
         if(other.name == "Player"){
             //player collects coin
-            print("you've collected a coin");
+            //print("you've collected a coin");
 
             CoinCounter.AddPoints(coinValue);
 

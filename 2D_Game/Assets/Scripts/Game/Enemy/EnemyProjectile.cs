@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     //Player Scripts
-    public GameObject player;
+    private GameObject player;
     private PlayerController playerController;
     private PlayerShoot playerShoot;
 
@@ -28,12 +28,13 @@ public class EnemyProjectile : MonoBehaviour
     void Start()
     {
         healthManager = FindObjectOfType<HealthManager>();
+        player = GameObject.Find("Player");
 
         distanceX = transform.position.x - player.transform.position.x;
         distanceY = transform.position.y - player.transform.position.y;
 
-        speedX = distanceY/distanceX;
-        speedY = distanceX/distanceY;
+        speedX = -distanceX / 15;
+        speedY = -distanceY / 15;
 
         //Start timer till self destruct
         StartCoroutine("DestroyTimer");

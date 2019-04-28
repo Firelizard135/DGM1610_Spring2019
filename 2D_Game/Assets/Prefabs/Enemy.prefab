@@ -217,7 +217,7 @@ MonoBehaviour:
   sparksParticle: {fileID: 7771220810954170613, guid: 385645bd76ab6cf47b4a5d6914102105,
     type: 3}
   shootCheck: {fileID: 7454525780231668634}
-  shotRange: 15
+  shotRange: 12
   shotDelay: 2
 --- !u!1 &3264929121831183182
 GameObject:
